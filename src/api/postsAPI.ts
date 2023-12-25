@@ -5,8 +5,12 @@ const postsAPI = axios.create({
 })
 
 export const getPosts = async () => {
-  await new Promise(resolve => setTimeout(resolve, 500));
-
   const res = await postsAPI.get('/')
   return res
+}
+export const likeOrDislike = async (data:any) => {
+  const {id, like} = data
+  return await postsAPI.patch(`/${id}`, {
+    like
+  })
 }
