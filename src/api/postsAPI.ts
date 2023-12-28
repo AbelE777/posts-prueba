@@ -14,3 +14,10 @@ export const likeOrDislike = async (data:any) => {
     like
   })
 }
+export const getFavorites = async () => {
+  return await postsAPI.get('?like=true')
+}
+
+export const getDislikes = async () => {
+  return await postsAPI.get('?like=false')
+}

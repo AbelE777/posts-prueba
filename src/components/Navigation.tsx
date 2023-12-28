@@ -24,6 +24,12 @@ export const Navigation = () => {
           >
             Favoritos
           </Link>
+          <Link
+            to="dislikes"
+            className="text-sm  text-gray-500 dark:text-white hover:underline"
+          >
+            Dislikes
+          </Link>
         </div>
       </div>
     </nav>

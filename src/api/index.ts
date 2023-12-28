@@ -1,1 +1,1 @@
-export {getPosts} from "./postsAPI"
+export { getPosts, likeOrDislike, getFavorites, getDislikes } from "./postsAPI";

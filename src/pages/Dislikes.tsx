@@ -1,22 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
-import { getPosts } from "../api";
-import { CustomSpinner, ErrorMsg, PostsList } from "../components";
+import { getDislikes } from "../api";
+import { CustomSpinner, DislikesList, ErrorMsg, FavoritesList } from "../components";
 
-export const Posts = () => {
+export const Dislikes = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["posts"],
-    queryFn: getPosts,
+    queryFn: getDislikes,
   });
 
   if (isLoading) return <CustomSpinner />;
   if (isError) return <ErrorMsg err={error.message} />;
 
+
   return (
     <div>
       {data?.data.length > 0 ? (
-        <PostsList posts={data?.data} />
+        <DislikesList posts={data?.data} />
       ) : (
-        <p className="flex justify-center items-center p-4">Sin datos</p>
+        <p className="flex justify-center items-center p-4">Sin dislikes</p>
       )}
     </div>
   );
