@@ -55,17 +55,19 @@ export const LikeDislikeButtons = ({ post }: IProp) => {
         handleLikeOrDislike.mutate({ id, like: false });
         console.log("Disliked");
       } else if (dislike) {
-        if(like === true) {
+        if (like === true) {
           setDislike(null);
           handleLikeOrDislike.mutate({ id, like: false });
           console.log("like === true");
-        }else {
+        } else {
           setDislike(null);
           handleLikeOrDislike.mutate({ id, like: null });
           console.log("Removed dislike");
         }
-      }
-      else {
+      } else if (dislike === false && like === false) {
+        setDislike(null);
+        handleLikeOrDislike.mutate({ id, like: null });
+      } else {
         setDislike(true);
         setLike(false);
         handleLikeOrDislike.mutate({ id, like: false });
